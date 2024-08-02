@@ -44,11 +44,17 @@ public class DemoApplication implements CommandLineRunner{
 		Etudiant et2= new Etudiant("etudiant_2","etudiant_2",LocalDate.of(2001,11,5),new Adresse("Grande"));
 		etudiantRepo.save(et1);
 		etudiantRepo.save(et2);
+		
+		
 	
 		List<Etudiant> listeEtudiants = etudiantRepo.findAll();
-	
+		System.out.println("test1: "+listeEtudiants);
 		
-		System.out.println(listeEtudiants);
+		//alternatively
+		
+		List<Etudiant> listeEtudiants2 = etudiantRepo.findAllWithNativeSQL();
+		System.out.println("test2: "+listeEtudiants2);
+		
 		
 		
 		EtatLivre etat1=new EtatLivre(true, true);
@@ -76,9 +82,19 @@ public class DemoApplication implements CommandLineRunner{
 		System.out.println(et1.getLivres());
 		
 		
+		int ageOfEtudiant1=etudiantRepo.selectQuerytest();
+		System.out.println(ageOfEtudiant1);
+		
+		//list of all ages
+		int[] ages=etudiantRepo.selectAllAges();
+		for (int age : ages) {
+		    System.out.println("Age: " + age);
+		}
+		
+		System.out.println(etudiantRepo.findAll());
+		
 	}
 	
-	@Transactional
 	private void borrowBook(Etudiant etudiant, Livre livre) {
 		etudiant.getLivres().add(livre);
 		livre.getEtudiants().add(etudiant);

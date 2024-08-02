@@ -136,6 +136,9 @@ public class Etudiant implements Serializable{
 	public void setLivres(List<Livre> livres) {
 		this.livres = livres;
 	}
+
+
+	
 	
 	
 	

@@ -1,0 +1,8 @@
+package com.dsi.tp1.repositories;
+
+
+public interface AdresseRepository extends JpaRepository<Adresse, Integer>{
+
+	public Adresse findByCode(int code);
+
+}

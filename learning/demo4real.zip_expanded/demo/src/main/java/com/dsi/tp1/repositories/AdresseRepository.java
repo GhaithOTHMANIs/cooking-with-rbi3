@@ -6,4 +6,5 @@ import com.dsi.tp1.entities.Adresse;
 
 public interface AdresseRepository extends JpaRepository<Adresse, Integer>{
 
+
 }

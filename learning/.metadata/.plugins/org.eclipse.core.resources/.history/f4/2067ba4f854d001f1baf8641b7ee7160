@@ -1,0 +1,5 @@
+package com.dsi.tp1.service;
+
+public interface IEtudiantService {
+
+}
